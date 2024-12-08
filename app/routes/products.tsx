@@ -5,32 +5,38 @@ const products = [
   {
     id: "1",
     title: "Basic Tee",
-    imageUrl: "/placeholder.svg?height=300&width=300",
+    imageUrl:
+      "https://kzmk13cv4m9dhgij3kop.lite.vusercontent.net/placeholder.svg?height=300&width=300",
   },
   {
     id: "2",
     title: "Leather Bag",
-    imageUrl: "/placeholder.svg?height=300&width=300",
+    imageUrl:
+      "https://kzmk13cv4m9dhgij3kop.lite.vusercontent.net//placeholder.svg?height=300&width=300",
   },
   {
     id: "3",
     title: "Sunglasses",
-    imageUrl: "/placeholder.svg?height=300&width=300",
+    imageUrl:
+      "https://kzmk13cv4m9dhgij3kop.lite.vusercontent.net//placeholder.svg?height=300&width=300",
   },
   {
     id: "4",
     title: "Watch",
-    imageUrl: "/placeholder.svg?height=300&width=300",
+    imageUrl:
+      "https://kzmk13cv4m9dhgij3kop.lite.vusercontent.net//placeholder.svg?height=300&width=300",
   },
   {
     id: "5",
     title: "Sneakers",
-    imageUrl: "/placeholder.svg?height=300&width=300",
+    imageUrl:
+      "https://kzmk13cv4m9dhgij3kop.lite.vusercontent.net//placeholder.svg?height=300&width=300",
   },
   {
     id: "6",
     title: "Headphones",
-    imageUrl: "/placeholder.svg?height=300&width=300",
+    imageUrl:
+      "https://kzmk13cv4m9dhgij3kop.lite.vusercontent.net//placeholder.svg?height=300&width=300",
   },
   // 必要に応じて商品を追加
 ];
