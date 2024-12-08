@@ -1,10 +1,6 @@
-import type {
-  MetaFunction,
-  LoaderFunction,
-  ActionFunction,
-} from "react-router";
+import type { Route } from "./+types/product";
 
-export const meta: MetaFunction = ({ params }) => {
+export const meta: Route.MetaFunction = ({ params }) => {
   const product = products.find((p) => p.id === params.id);
   return [
     {
@@ -44,7 +40,7 @@ const products: Product[] = [
   },
 ];
 
-export const clientLoader: LoaderFunction = async ({ params }) => {
+export const loader = async ({ params }: Route.LoaderArgs) => {
   const product = products.find((p) => p.id === params.id);
   if (!product) {
     throw new Response("見つかりません", { status: 404 });
@@ -52,7 +48,7 @@ export const clientLoader: LoaderFunction = async ({ params }) => {
   return product;
 };
 
-export const action: ActionFunction = async ({ request, params }) => {
+export const action = async ({ request, params }: Route.ActionArgs) => {
   const formData = await request.formData();
   const productId = params.id;
   console.log(`商品 ${productId} をカートに追加しました`);
@@ -60,9 +56,8 @@ export const action: ActionFunction = async ({ request, params }) => {
   return null;
 };
 
-export default function ProductPage({ params }: { params: { id: string } }) {
-  const product = products.find((p) => p.id === params.id);
-
+export default function ProductPage({ loaderData }: Route.ComponentProps) {
+  const product = loaderData;
   return (
     <div className="bg-white min-h-screen">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
