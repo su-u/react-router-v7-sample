@@ -1,4 +1,5 @@
 import type { Route } from "./+types/product";
+import { data, redirect } from "react-router";
 
 export const meta: Route.MetaFunction = ({ params }) => {
   const product = products.find((p) => p.id === params.id);
@@ -43,7 +44,7 @@ const products: Product[] = [
 export const loader = async ({ params }: Route.LoaderArgs) => {
   const product = products.find((p) => p.id === params.id);
   if (!product) {
-    throw new Response("見つかりません", { status: 404 });
+    throw data("見つかりません", { status: 404 });
   }
   return product;
 };
@@ -52,8 +53,7 @@ export const action = async ({ request, params }: Route.ActionArgs) => {
   const formData = await request.formData();
   const productId = params.id;
   console.log(`商品 ${productId} をカートに追加しました`);
-  // return redirect(`/product/${productId}`);
-  return null;
+  return redirect(`/product/${productId}`);
 };
 
 export default function ProductPage({ loaderData }: Route.ComponentProps) {
